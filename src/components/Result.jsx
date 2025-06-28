@@ -16,14 +16,31 @@ export default function Result({ mortgageResult, mortgageIsCalculated }) {
             <div className="result">
                 <div className="result__group">
                     <p className="result__text">Your monthly repayments</p>
-                    {mortgageIsCalculated && (
-                        <h1 className="result__monthly">&#xa3;{monthlyPayments.toLocaleString()}</h1>
-                    )}
+                    {mortgageIsCalculated &&
+                        (isNaN(monthlyPayments) ? (
+                            <h1 className="result__monthly">Incomputable</h1>
+                        ) : (
+                            <h1 className="result__monthly">
+                                &#xa3;
+                                {monthlyPayments.toLocaleString().length > 14
+                                    ? monthlyPayments.toLocaleString().slice(0, 14) + "..."
+                                    : monthlyPayments.toLocaleString()}
+                            </h1>
+                        ))}
                 </div>
                 <div className="line"></div>
                 <div className="result__group">
                     <p className="result__text">Total you'll repay over the term</p>
-                    {mortgageIsCalculated && <h2 className="result__term">&#xa3;{termPayments.toLocaleString()}</h2>}
+                    {mortgageIsCalculated && isNaN(termPayments) ? (
+                        <h1 className="result__term">Incomputable</h1>
+                    ) : (
+                        <h2 className="result__term">
+                            &#xa3;
+                            {termPayments.toLocaleString().length > 30
+                                ? termPayments.toLocaleString().slice(0, 30) + "..."
+                                : termPayments.toLocaleString()}
+                        </h2>
+                    )}
                 </div>
             </div>
         </div>
