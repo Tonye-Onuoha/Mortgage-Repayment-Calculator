@@ -134,7 +134,7 @@ label[for="interest-only"] {
 
 .input-pounds {
     width: 15%;
-    height: 96%;
+    height: 97.5%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -152,7 +152,7 @@ label[for="interest-only"] {
 
 .input-years,
 .input-percent {
-    height: 96%;
+    height: 97.5%;
     position: absolute;
     top: 0;
     bottom: 0;
