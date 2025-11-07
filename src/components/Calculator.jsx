@@ -27,7 +27,7 @@ export default function Calculator({ handleMortgageResult, handleMortgageIsCalcu
 
     const handleFocusedInput = (e) => setFocusedInput(e.currentTarget.name);
 
-    const handleBlurredInput = (e) => setFocusedInput("");
+    const handleBlurredInput = () => setFocusedInput("");
 
     const calculateMortgage = ({ amount, term, rate, type }) => {
         if (type === "repayment") {
@@ -86,7 +86,7 @@ export default function Calculator({ handleMortgageResult, handleMortgageIsCalcu
         <div className="calculator">
             <div className="calculator__heading-container">
                 <h1 className="calculator__heading">Mortgage Calculator</h1>
-                <button className="calculator__clear-button" onClick={clearForm}>
+                <button type="button" className="calculator__clear-button" onClick={clearForm}>
                     Clear All
                 </button>
             </div>
